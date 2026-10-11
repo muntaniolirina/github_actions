@@ -1,3 +1,4 @@
+// в basename компонента BrowserRouter указываем путь, который будет считаться корневым для роутинга
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,7 +11,8 @@ const root = createRoot(domNode);
 root.render(
 	<StrictMode>
 		<Analytic.Provider value={{ yandexId: 96728508, googleId: 'G-ZXWBHB1NR0' }}>
-			<BrowserRouter>
+			<BrowserRouter
+				basename={process.env.PUBLIC_PATH ? process.env.PUBLIC_PATH : '/'}>
 				<App />
 			</BrowserRouter>
 		</Analytic.Provider>
